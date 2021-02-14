@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./humanToEpoch.css">
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale-subtle.css" />
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/gradient.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <title>Human Date to Epoch converter</title>
+  <link rel="icon" href="/images/logo.htm">
+</head>
+
+<body>
+  <header>
+    <h2>Utility Apps <i class="fas fa-wrench"></i></h2>
+    <nav>
+      <ul class="nav__links">
+        <li><a class="link" href="#">Time converters <i class="fas fa-sort-down"></i></a>
+          <div class="sub-menu1">
+            <ul>
+              <li><a href="/epochToHuman/epochToHumanDate.html">Epoch to Human Date converter</a></li>
+              <li><a href="./Hextorgb.html">Human Date to Epoch converter</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- main section -->
+  <div class="container">
+    <!-- <div class="title-wrapper">
+            <h1 class="title">RGB to HEX converter</h1>
+        </div> -->
+
+    <div class="wrapper1">
+      <div class="result-div">
+        Human Date
+      </div>
+      <div class="time-container">
+
+        <div class="time-wrapper">
+          <p class="label">Year</p>
+          <input type="text" class="output year">
+        </div>
+
+        <div class="time-wrapper">
+          <p class="label">Month</p>
+          <input type="text" class="output month">
+        </div>
+
+        <div class="time-wrapper">
+          <p class="label">Day</p>
+          <input type="text" class="output day">
+        </div>
+
+        <div class="time-wrapper">
+          <p class="label">Hour</p>
+          <input type="text" class="output hour">
+        </div>
+
+        <div class="time-wrapper">
+          <p class="label">Minutes</p>
+          <input type="text" class="output minutes">
+        </div>
+
+        <div class="time-wrapper">
+          <p class="label">Seconds</p>
+          <input type="text" class="output seconds">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="button-container">
+      <div class="btn1">
+        <button class="btn-converter">Convert
+          <div class="icon"><i class="fa fa-sync"></i></div>
+        </button>
+      </div>
+
+      <div class="btn2">
+        <button class="btn-reset">
+          <p>Reset</p>
+          <div class="icon reset-icon"><i class="fa fa-times"></i></div>
+        </button>
+      </div>
+    </div>
+
+    <div class="component1">
+      <div class="wrapper">
+
+        <div class="header">
+          Epoch Time&#128337;
+        </div>
+
+        <div class="component red-component">
+          <div class="input">
+            <div class="typer"></div>
+          </div>
+          <div class="logo copy-btn" data-clipboard-target=".typer">
+            <i class="fas fa-copy"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
+  <!-- information regarding encoder -->
+  </div>
+
+  <div class="accordion">
+
+    <div class="sub-information">
+
+      <div class="contentBox">
+
+        <div class="label-1">
+          <div class="status-circle"></div>What is RGB to HEX conversion ?
+        </div>
+
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur labore magni praesentium
+            facilis optio distinctio hic. Laboriosam officia labore beatae!.</p>
+        </div>
+      </div>
+
+      <div class="contentBox">
+
+        <div class="label-1">
+          <div class="status-circle"></div>When and why RGB to HEX conversion is used ?
+        </div>
+
+        <div class="content">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis laborum earum soluta ex similique
+            iste distinctio cupiditate, eligendi vitae esse?</p>
+        </div>
+      </div>
+
+      <div class="contentBox">
+
+        <div class="label-1">
+          <div class="status-circle"></div>Converting a RGB code to HEX code
+        </div>
+
+        <div class="content">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis laborum earum soluta ex similique
+            iste distinctio cupiditate, eligendi vitae esse?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+  <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+  <script src="./humanToEpoch.js"></script>
+</body>
+
+</html>
