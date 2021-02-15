@@ -8,25 +8,68 @@ const day = document.querySelector(".day");
 const hour = document.querySelector(".hour");
 const minutes = document.querySelector(".minutes");
 const seconds = document.querySelector(".seconds");
+const hr = document.querySelector("#hr");
+const min = document.querySelector("#mn");
+const sec = document.querySelector("#sc");
+const unixTime = document.querySelector(".epochTime");
 const accordion = document.querySelectorAll(".contentBox");
 
-console.log(year);
+// analog clock part here
+
+const runClock = () => {
+  const degree = 6;
+  setInterval(() => {
+    let today = new Date();
+    let todayHour = today.getHours() * 30;
+    let todayMinutes = today.getMinutes() * degree;
+    let todaySeconds = today.getSeconds() * degree;
+    hr.style.transform = `rotateZ(${todayHour + (todayMinutes / 12)}deg)`;
+    min.style.transform = `rotateZ(${todayMinutes}deg)`;
+    sec.style.transform = `rotateZ(${todaySeconds}deg)`;
+  })
+};
+
+runClock();
+
+// unix clock part here
+
+const toEpoch = (date, month, year, hour, minute, second) => {
+  const dateString = month + '-' + date + '-' + year + ' ' + hour + ':' + minute + ':' + second;
+  const epochTime = Math.floor(new Date(dateString).getTime() / 1000);
+  return epochTime;
+}
+
+const runUnixClock = () => {
+  setInterval(() => {
+    const store = new Date();
+    const storeYear = store.getFullYear();
+    const storeMonth = store.getMonth() + 1;
+    const storeDay = store.getDate();
+    const storeHour = store.getHours();
+    const storeMinutes = store.getMinutes();
+    const storeSeconds = store.getSeconds();
+    unixTime.innerHTML = toEpoch(storeDay, storeMonth, storeYear, storeHour, storeMinutes, storeSeconds);
+  })
+}
+
+runUnixClock();
 
 const timeConverter = epochTime => {
-  const d = new Date(0);
-  d.setUTCSeconds(epochTime);
-  return d;
+  const date = new Date(epochTime * 1000);
+  return date;
 };
 
 button.addEventListener('click', () => {
-  const humanDate = timeConverter(epochTime.value);
-  console.log(humanDate);
-  year.innerHTML = humanDate.getFullYear();
-  month.innerHTML = humanDate.getMonth();
-  day.innerHTML = humanDate.getDate();
-  hour.innerHTML = humanDate.getHours();
-  minutes.innerHTML = humanDate.getMinutes();
-  seconds.innerHTML = humanDate.getSeconds();
+  if (epochTime.value != "") {
+    const humanDate = timeConverter(epochTime.value);
+    console.log(humanDate);
+    year.innerHTML = humanDate.getFullYear();
+    month.innerHTML = humanDate.getMonth() + 1;
+    day.innerHTML = humanDate.getDate();
+    hour.innerHTML = humanDate.getHours();
+    minutes.innerHTML = humanDate.getMinutes();
+    seconds.innerHTML = humanDate.getSeconds();
+  }
 });
 
 resetBtn.addEventListener('click', () => {
@@ -110,7 +153,7 @@ new ClipboardJS('.copy-btn');
 
 const sr = ScrollReveal({
   origin: 'top',
-  distance: '80px',
+  distance: '70px',
   duration: 2000,
 })
 

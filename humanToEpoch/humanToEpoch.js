@@ -8,7 +8,52 @@ const day = document.querySelector(".day");
 const hour = document.querySelector(".hour");
 const minutes = document.querySelector(".minutes");
 const seconds = document.querySelector(".seconds");
+const hr = document.querySelector("#hr");
+const min = document.querySelector("#mn");
+const sec = document.querySelector("#sc");
+const unixTime = document.querySelector(".epochTime");
 const accordion = document.querySelectorAll(".contentBox");
+
+
+// analog clock part here
+
+const runClock = () => {
+  const degree = 6;
+  setInterval(() => {
+    let today = new Date();
+    let todayHour = today.getHours() * 30;
+    let todayMinutes = today.getMinutes() * degree;
+    let todaySeconds = today.getSeconds() * degree;
+    hr.style.transform = `rotateZ(${todayHour + (todayMinutes / 12)}deg)`;
+    min.style.transform = `rotateZ(${todayMinutes}deg)`;
+    sec.style.transform = `rotateZ(${todaySeconds}deg)`;
+  })
+};
+
+runClock();
+
+// unix clock part here
+
+const convertToEpoch = (date, month, year, hour, minute, second) => {
+  const dateString = month + '-' + date + '-' + year + ' ' + hour + ':' + minute + ':' + second;
+  const epochTime = Math.floor(new Date(dateString).getTime() / 1000);
+  return epochTime;
+}
+
+const runUnixClock = () => {
+  setInterval(() => {
+    const store = new Date();
+    const storeYear = store.getFullYear();
+    const storeMonth = store.getMonth() + 1;
+    const storeDay = store.getDate();
+    const storeHour = store.getHours();
+    const storeMinutes = store.getMinutes();
+    const storeSeconds = store.getSeconds();
+    unixTime.innerHTML = convertToEpoch(storeDay, storeMonth, storeYear, storeHour, storeMinutes, storeSeconds);
+  })
+}
+
+runUnixClock();
 
 const toEpoch = (date, month, year, hour, minute, second) => {
   const dateString = month + '-' + date + '-' + year + ' ' + hour + ':' + minute + ':' + second;
@@ -18,7 +63,9 @@ const toEpoch = (date, month, year, hour, minute, second) => {
 }
 
 button.addEventListener('click', () => {
-  epochTime.innerHTML = toEpoch(day.value, month.value, year.value, hour.value, minutes.value, seconds.value);
+  if (day.value != ' ' && month.value != '' && year.value != '' && hour.value != '' && minutes.value != '' && seconds.value != '') {
+    epochTime.innerHTML = toEpoch(day.value, month.value, year.value, hour.value, minutes.value, seconds.value);
+  }
 });
 
 resetBtn.addEventListener('click', () => {
