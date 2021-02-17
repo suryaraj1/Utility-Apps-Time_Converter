@@ -747,14 +747,22 @@ header h2 i:hover {
   border-radius: 2px;
 }
 
-/* media queries */
 
-@media screen and (min-width: 400px) {
+@media screen and (max-width: 768px) {
   .clock-container {
     height: 700px;
   }
 
   .unix-time {
     font-size: 1em;
+  }
+
+  .wrapper1 {
+    width: 380px;
+    height: 600px;
+  }
+
+  .time-container {
+    grid-template-columns: 1fr;
   }
 }
