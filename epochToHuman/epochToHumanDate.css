@@ -549,6 +549,32 @@ header h2 i:hover {
   }
 }
 
+.btn-reset:active .icon {
+  animation: animate1 0.7s ease;
+}
+
+@keyframes animate1 {
+  0% {
+    transform: scale(1.1);
+  }
+
+  25% {
+    transform: scale(0.8);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  75% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 .btn-converter p {
   position: relative;
   right: 3px;
