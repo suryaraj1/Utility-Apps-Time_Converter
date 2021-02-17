@@ -297,13 +297,14 @@ header h2 i:hover {
 .header {
   height: 50px;
   width: 172px;
-  color: #fff;
+  color: #000;
   border-radius: 5px;
   display: flex;
   font-size: 1.5em;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(134deg, #6A98F0 0%, #4961DC 99%);
+  text-decoration: underline;
+  text-underline-offset: 10px;
 }
 
 .component {
@@ -518,6 +519,11 @@ header h2 i:hover {
   box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.2);
 }
 
+.btn-converter p {
+  position: relative;
+  right: 5px;
+}
+
 .btn-reset p {
   position: relative;
   left: 10px;
@@ -583,14 +589,15 @@ header h2 i:hover {
 .wrapper1 .result-div{
   height: 50px;
   width: 160px;
-  color: #fff;
+  color: #000;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 30px;
   font-size: 1.5em;
-  background: linear-gradient(134deg, #6A98F0 0%, #4961DC 99%);
+  text-decoration: underline;
+  text-underline-offset: 10px;
 }
 
 .time-container {
